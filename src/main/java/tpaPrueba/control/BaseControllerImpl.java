@@ -7,11 +7,7 @@ import io.micronaut.data.model.Pageable;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
 import io.micronaut.http.annotation.Body;
-import io.micronaut.http.annotation.Delete;
-import io.micronaut.http.annotation.Get;
 import io.micronaut.http.annotation.PathVariable;
-import io.micronaut.http.annotation.Post;
-import io.micronaut.http.annotation.Put;
 import tpaPrueba.ent.Base;
 import tpaPrueba.serv.BaseServiseImpl;
 
@@ -23,22 +19,8 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiseIm
     @Inject
     protected S servicio;
 
-//    private final S servicio;
-//
-//    @Inject
-//    public BaseControllerImpl( S service) {
-//        this.servicio = service;
-//    }
     
-//    protected S servicio;
-//
-//    public BaseControllerImpl(S service){
-//        this.servicio=service;
-//    }
-    
-    
-    @Override
-    @Get("/")
+//    @Override
     public HttpResponse<?> getAll(){
         try {
             return HttpResponse.status(HttpStatus.OK).body(servicio.findall());
@@ -47,7 +29,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiseIm
         }
     }
 
-    @Get("/paged")
+//    @Get("/paged")
     public HttpResponse<?> getAll(Pageable pageable){
         try {
             return HttpResponse.status(HttpStatus.OK).body(servicio.findall(pageable));
@@ -56,8 +38,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiseIm
         }
     }
 
-    @Get("/{id}")
-    public HttpResponse<?> getOne(@PathVariable Long id){
+    public HttpResponse<?> getOne( Long id){
         try {
             return HttpResponse.status(HttpStatus.OK).body(servicio.findById(id));
         }catch (Exception e){
@@ -65,8 +46,7 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiseIm
         }
     }
 
-    @Post("")
-    public HttpResponse<?> save(@Body E entity){
+    public HttpResponse<?> save( E entity){
         try {
             return HttpResponse.status(HttpStatus.OK).body(
                     servicio.save(entity)
@@ -76,8 +56,8 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiseIm
         }
     }
 
-    @Put("/{id}")
-    public HttpResponse<?> update(@PathVariable Long id, @Body E entity){
+//    @Put("/{id}")
+    public HttpResponse<?> update( Long id, @Body E entity){
         try {
             return HttpResponse.status(HttpStatus.OK).body(servicio.update(id, entity));
         }catch (Exception e){
@@ -85,8 +65,8 @@ public abstract class BaseControllerImpl<E extends Base, S extends BaseServiseIm
         }
     }
 
-    @Delete("/{id}")
-    public HttpResponse<?> delete(@PathVariable Long id){
+//    @Delete("/{id}")
+    public HttpResponse<?> delete( Long id){
         try {
             return HttpResponse.status(HttpStatus.NO_CONTENT).body(servicio.delete(id));
         }catch (Exception e){

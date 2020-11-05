@@ -22,7 +22,6 @@ public abstract class BaseServiseImpl<E extends Base, ID extends Serializable> i
         this.baseRepository=baseRepository;
     }
 
-    @Override
     @Transactional
     public Page<E> findall(Pageable pageable) throws Exception{
         try{

@@ -1,13 +1,18 @@
 package tpaPrueba.control;
 
+import javax.inject.Inject;
+
 import io.micronaut.context.annotation.Parameter;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.HttpStatus;
-import io.micronaut.http.annotation.*;
+import io.micronaut.http.annotation.Body;
+import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Delete;
+import io.micronaut.http.annotation.Get;
+import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.QueryValue;
 import tpaPrueba.ent.Persona;
 import tpaPrueba.serv.PersonaService;
-
-import javax.inject.Inject;
 
 
 @Controller("api/v1/personas")

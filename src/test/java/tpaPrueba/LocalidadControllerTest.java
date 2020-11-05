@@ -1,18 +1,18 @@
 package tpaPrueba;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import javax.inject.Inject;
+
+import org.junit.jupiter.api.Test;
+
 import io.micronaut.http.HttpRequest;
 import io.micronaut.http.HttpResponse;
 import io.micronaut.http.client.RxHttpClient;
 import io.micronaut.http.client.annotation.Client;
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest;
 import io.reactivex.Flowable;
-import org.junit.jupiter.api.Test;
 import tpaPrueba.ent.Localidad;
-import tpaPrueba.ent.Persona;
-
-import javax.inject.Inject;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @MicronautTest
 public class LocalidadControllerTest {
